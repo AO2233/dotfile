@@ -1,0 +1,15 @@
+general.import = [ "~/.config/alacritty/themes/themes/ayu_light.toml" ]
+
+[font]
+size = 15
+
+[scrolling]
+history = 10_000
+
+[window]
+opacity = 0.8
+#blur=0.3
+  [window.dimensions]
+  columns = 110
+  lines = 40
+
