@@ -1,0 +1,18 @@
+#!/bin/zsh
+cd /Users/ao/Library/Mobile\ Documents/com\~apple\~CloudDocs/MyBlog/hugo-blog/
+hugo -D --cleanDestinationDir -d ~/tmp/public
+cd ~/tmp/public
+
+rm ./sitemap.xml
+git add .
+git commit -m "auto commit"
+git push https://github.com/ao2233/ao2233.github.io.git master
+
+cd /Users/ao/Library/Mobile\ Documents/com\~apple\~CloudDocs/MyBlog/hugo-blog/content
+
+git add .
+git commit -m "auto commit"
+git push
+
+echo "OK"
+cd ~

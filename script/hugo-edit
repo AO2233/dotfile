@@ -1,0 +1,4 @@
+#!/bin/bash -ex
+cd /Users/ao/Library/Mobile\ Documents/com\~apple\~CloudDocs/MyBlog/hugo-blog
+
+code .

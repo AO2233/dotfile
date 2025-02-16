@@ -1,0 +1,14 @@
+#!/bin/zsh -ex
+rm -rf ~/tmp/public
+bs_p='/Users/ao/Library/Mobile Documents/com~apple~CloudDocs/MyBlog/hugo-blog/'
+cd $bs_p
+hugo --cleanDestinationDir -d ~/tmp/public
+cd ~/tmp/public
+
+git init
+rm ./sitemap.xml
+git add .
+git commit -m "final"
+git push https://github.com/ao2233/ao2233.github.io.git master -f
+echo "OK"
+cd ~

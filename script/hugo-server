@@ -1,0 +1,5 @@
+#!/bin/bash -ex
+cd /Users/ao/Library/Mobile\ Documents/com\~apple\~CloudDocs/MyBlog/hugo-blog/
+
+hugo server -D --bind=0.0.0.0  --disableFastRender -d ~/tmp/public
+

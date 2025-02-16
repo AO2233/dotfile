@@ -1,0 +1,15 @@
+#!/bin/zsh
+
+# switch mode
+# osascript -e 'tell app "System Events" to tell appearance preferences to set dark mode to not dark mode'
+
+# light mode
+osascript -e 'tell application "System Events" to tell appearance preferences to set dark mode to false'
+# current display
+osascript -e 'tell application "Terminal" to set current settings of tabs of windows to settings set "One Light"'
+# default display/next
+osascript -e 'tell application "Terminal" to set default settings to settings set "One Light"'
+# wallpaper
+#osascript -e 'tell application "System Events" to tell every desktop to set picture to "/Users/ao/Wallpaper/焦茶/72599030_p0.jpg"'
+# alacritty
+gsed -i "s/ayu_dark/ayu_light/g" ~/.config/alacritty/alacritty.toml
