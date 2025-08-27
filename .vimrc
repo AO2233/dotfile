@@ -67,7 +67,7 @@ set softtabstop=4                " insert mode tab and backspace use 4 spaces
 " encoding
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1
-set termencoding=utf-8
+"set termencoding=utf-8
 set ffs=unix,dos,mac
 set formatoptions+=m
 set formatoptions+=B

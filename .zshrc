@@ -26,10 +26,10 @@ ZSH_THEME="ys"
 # Uncomment one of the following lines to change the auto-update behavior
 # zstyle ':omz:update' mode disabled  # disable automatic updates
 # zstyle ':omz:update' mode auto      # update automatically without asking
-# zstyle ':omz:update' mode reminder  # just remind me to update when it's time
+zstyle ':omz:update' mode reminder  # just remind me to update when it's time
 
 # Uncomment the following line to change how often to auto-update (in days).
-# zstyle ':omz:update' frequency 13
+zstyle ':omz:update' frequency 30
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -83,16 +83,34 @@ source $ZSH/oh-my-zsh.sh
 # ------ PATH setting ------
 export PATH="/Users/ao/Program/bin:/Users/ao/Program/script:$PATH"
 # Homebrew
-export PATH=/opt/homebrew/bin:$PATH
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:/opt/local/bin:$PATH"
 # Android Tools
-export PATH='/Users/ao/Documents/scripts/':'/Users/ao/Library/Android/sdk/platform-tools/':$PATH
+export PATH="$PATH:/Users/ao/Documents/scripts/:/Users/ao/Library/Android/sdk/platform-tools/"
+export PATH="$PATH:/Users/ao/Program/jetbrain"
+export PATH="$PATH:/opt/homebrew/Cellar/openjdk/bin"
+export PATH="$PATH:/Applications/010 Editor.app/Contents/CmdLine" #ADDED BY 010 EDITOR
+export PATH="$PATH:/Users/ao/.cache/lm-studio/bin"
+export PATH="$PATH:/opt/homebrew/opt/curl/bin"
+
+
 # no proxy
 export no_proxy="localhost, 127.0.0.1"
 
 # ------ alias ------
+#
+alias ark='emulator -avd Pixel -writable-system -accel auto -gpu auto -qemu -append "androidboot.selinux=permissive"'
 alias hot_mac='sysbench cpu run --threads=12 --time=200' # mac too cold
+alias z=zellij
 alias wd="wget -q -O - sakura.lan:5000"
-#alias setssr="export all_proxy=http://127.0.0.1:18889"
+alias battery_time="pmset -g batt"
+
+alias low_power="sudo pmset -a lowpowermode 1"
+alias low_power_off="sudo pmset -a lowpowermode 0"
+
+#alias caption_on='defaults write com.apple.mediaaccessibility PreferClosedCaptions -bool true'
+#alias caption_off='defaults write com.apple.mediaaccessibility PreferClosedCaptions -bool false'
+
+alias setssr="export all_proxy=http://127.0.0.1:9050"
 alias wechat="nohup /Applications/WeChat.app/Contents/MacOS/WeChat > /dev/null 2>&1 &"
 alias unsetssr="unset all_proxy && unset ALL_PROXY"
 alias rm="rm -i"
@@ -108,7 +126,7 @@ alias watch="watch --color"
 # disk healthy
 alias disk="smartctl -a disk0"
 # VScode 
-alias code="/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron"
+#alias code="/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron"
 alias diff=colordiff
 alias software_update="brew update --auto-update && brew upgrade && brew cu -a -y"
 
@@ -170,15 +188,18 @@ alias clean_pip="rm -rf ~/Library/Caches/pip/*"
 alias ll='ls -alh'
 alias anime_on="sudo apachectl start"
 alias anime_off="sudo apachectl stop"
+
 # ------ extra ------
 # locale
 export LC_ALL=en_US.UTF-8  
 export LANG=en_US.UTF-8
+
 # java
 JAVA_TOOL_OPTIONS="-Dsun.java2d.opengl=true"
+
 # jupyter
-export LANG="zh_CN"
-export LC_CTYPE="zh_CN.UTF-8"
+#export LANG="zh_CN.UTF8"
+#export LC_CTYPE="zh_CN.UTF-8"
 # history file
 export HISTSIZE=1000000000
 export SAVEHIST=$HISTSIZE
@@ -187,22 +208,19 @@ setopt EXTENDED_HISTORY
 export VISUAL=nvim
 export EDITOR=nvim
 #export PAGER='most'
-export PATH=$PATH:$HOME/Program/jetbrain
-export PATH="/opt/homebrew/Cellar/openjdk/bin:$PATH"
-export LANG="zh_CN.UTF8"
-export TLDR_AUTO_UPDATE_DISABLED=1
 
-# Conda
-export CONDA_PREFIX='/usr/local/anaconda3/'
+export TLDR_AUTO_UPDATE_DISABLED=1
 
 # zsh-completions
 if type brew &>/dev/null; then
     FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
     autoload -Uz compinit
     compinit
-  fi
-# zsh-completions 
+fi
+# zsh-completions
+
+# conda
+export CONDA_PREFIX='/usr/local/anaconda3/'
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -218,10 +236,15 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
 # inshellisense --shell zsh
 #[ -f ~/.inshellisense/key-bindings.zsh ] && source ~/.inshellisense/key-bindings.zsh
+
+#setssr
+#eval "$(zoxide init zsh)"
+
 # ------ action ------
 my_env
-#setssr
 
-export PATH="$PATH:/Applications/010 Editor.app/Contents/CmdLine" #ADDED BY 010 EDITOR
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+export PATH="$PATH:/Users/ao/Library/Android/sdk/emulator"
