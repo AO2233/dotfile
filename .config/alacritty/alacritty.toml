@@ -2,6 +2,28 @@
 [font]
 size = 15
 
+# 设置常规字体
+[font.normal]
+# 字体族名称，必须与系统中安装的名称完全一致
+family = "Sarasa Mono SC Nerd Font"
+# 样式
+style = "Regular"
+
+# 设置粗体字体
+[font.bold]
+family = "Sarasa Mono SC Nerd Font"
+style = "Bold"
+
+# 设置斜体字体
+[font.italic]
+family = "Sarasa Mono SC Nerd Font"
+style = "Italic"
+
+# 设置粗斜体
+[font.bold_italic]
+family = "Sarasa Mono SC Nerd Font"
+style = "Bold Italic"
+
 [scrolling]
 history = 10_000
 
@@ -13,5 +35,5 @@ blur=true
   lines = 40
 
 [general]
-import = [ "~/.config/alacritty/themes/themes/gruvbox_light.toml" ]
+import = [ "~/.config/alacritty/themes/themes/gruvbox_dark.toml" ]
 
